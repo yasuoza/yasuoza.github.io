@@ -1,0 +1,3 @@
+[submodule "themes/singular"]
+	path = themes/singular
+	url = https://github.com/yasuoza/hugo-theme-singular.git

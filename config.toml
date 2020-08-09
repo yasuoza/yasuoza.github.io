@@ -1,0 +1,30 @@
+baseURL = "https://yasuoza.github.io"
+languageCode = "en-us"
+title = "Back of the flyer"
+
+theme = "singular"
+
+# Markup
+paginate = 5
+enableInlineShortcodes = true
+pygmentsCodefences = true
+
+[params]
+  description = "Daily life and memos"
+  [params.logo]
+    url = "/images/icon.jpg"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    noClasses = true
+    style = "github"
+
+  # GitHub like break line.
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = true
+
+[permalinks]
+	post = "/:year/:month/:day/:filename/"
+	page = "/:filename/"
