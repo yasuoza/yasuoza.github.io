@@ -9,6 +9,9 @@ paginate = 5
 enableInlineShortcodes = true
 pygmentsCodefences = true
 
+# For GitHub Pages
+publishDir = "docs"
+
 [params]
   description = "Daily life and memos"
   [params.logo]
