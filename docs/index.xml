@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Back of the flyer</title><link>https://yasuoza.github.io/</link><description>Recent content on Back of the flyer</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 09 Aug 2020 16:25:43 +0900</lastBuildDate><atom:link href="https://yasuoza.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello World</title><link>https://yasuoza.github.io/2020/08/09/helloworld/</link><pubDate>Sun, 09 Aug 2020 16:25:43 +0900</pubDate><guid>https://yasuoza.github.io/2020/08/09/helloworld/</guid><description>&lt;p>n回目となるブログの再開をしようと思う。はてなダイアリーで書いたり、Octopressで書いたりしたこともあったけど、今度は&lt;a href="https://gohugo.io/">Hugo&lt;/a>で書いてみる。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Back of the flyer</title><link>https://yasuoza.github.io/</link><description>Recent content on Back of the flyer</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 18 Aug 2020 21:09:11 +0900</lastBuildDate><atom:link href="https://yasuoza.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>GoでSwitchBotを動かす</title><link>https://yasuoza.github.io/2020/08/18/switchbot-go/</link><pubDate>Tue, 18 Aug 2020 21:09:11 +0900</pubDate><guid>https://yasuoza.github.io/2020/08/18/switchbot-go/</guid><description>我が家ではホームIoTを自作していて、HomeKitやAlexaを駆使してエアコンを操作したり、テレビや照明を操作したりしている。
+その中でも最も家族に評価されているのがお風呂の自動化だ。
+お風呂を入れるにはお風呂場に行って換気扇を一時的に止め、それと同時にお湯を入れるスイッチを押す必要があるのだが、お風呂を入れるタイミングはだいたい家族で団らんしていたり、ゆっくりしているときなので、誰も立ち上がりたくなく、お風呂を入れるときにいつも小さなせめぎ合い起きていた。
+この問題を解消するため、我が家では
+お風呂の換気扇のスイッチを押し、換気扇を一時的に止める。 お湯を入れるスイッチを押す。 という2つのスイッチ操作を
+SwitchBot ボット スイッチ ボタンに適用 指ロボット スマートホーム ワイヤレス タイマー スマホで遠隔操作 アレクサ、Google home、HomePod、IFTTTに対応(ハブ必要) amazon.co.jp を2つ利用して実現している。
+このSwitchBotを操作するには
+スマートフォンアプリを都度開いて操作する。 SwitchBot Hubを別途購入してAlexaやIFTTTと連携して操作する。 操作するコードを書いて操作する。 がある。
+AlexaだけであればSwitchBot Hubを購入する方法が楽だが、Node-Redを利用したHomeKit連携も作り込んでおり、Homeアプリ対応もしたかったので結局自分でコードを書くことにした。
+ちなみに、このSwitchBotはBluetoothで操作することができ、公式のサンプルコードが公開されているのでそれが参考になる。
+他にもサードパーティのRoButton/switchbotpyが公開されており、これがとても参考になった。
+Goを選んだのはクロスコンパイルがあってホームIoTの母艦となっているRaspberry Pi Zero W向けにバイナリを出力できるから。他にもクロスコンパイルできる言語はあるけど、BLEのライブラリもある程度選べるGoを選択した。
+リリース時のバイナリ生成もGitHub ActionsとGoReleaserを利用して、ビルドの方法を忘れても良いような設定にした。
+というわけで成果物はこちら。
+Raspberry Pi Zero W(ARM 6)で使う場合は
+curl -SL https://github.com/yasuoza/switchbot/releases/latest/download/switchbot_linux_armv6.tar.gz -O tar -xvzf switchbot_linux_armv6.tar.gz # sudoなしでswitchbotを実行する場合 sudo setcap &amp;#39;cap_net_raw,cap_net_admin+eip&amp;#39; ./switchbot で利用できる。</description></item><item><title>Hello World</title><link>https://yasuoza.github.io/2020/08/09/helloworld/</link><pubDate>Sun, 09 Aug 2020 16:25:43 +0900</pubDate><guid>https://yasuoza.github.io/2020/08/09/helloworld/</guid><description>&lt;p>n回目となるブログの再開をしようと思う。はてなダイアリーで書いたり、Octopressで書いたりしたこともあったけど、今度は&lt;a href="https://gohugo.io/">Hugo&lt;/a>で書いてみる。&lt;/p></description></item></channel></rss>
