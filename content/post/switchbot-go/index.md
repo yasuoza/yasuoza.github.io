@@ -1,5 +1,5 @@
 ---
-title: "GoでSwitchBotを動かす"
+title: "GoでSwitchBotを操作する"
 date: 2020-08-18T21:09:11+09:00
 ---
 
