@@ -1,7 +1,7 @@
 BASEURL ?= "http://localhost"
 
 docker/build:
-	docker run --rm -v ${PWD}:/singular -w /singular \
+	docker run --rm -v ${PWD}:/blog -w /blog \
 		-e TZ=Asia/Tokyo \
 		hugo \
 		--minify

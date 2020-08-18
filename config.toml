@@ -14,6 +14,7 @@ publishDir = "docs"
 
 [params]
   description = "Daily life and memos"
+  amazonJpAffiliate = "yasuoza-22"
   [params.logo]
     url = "/images/icon.jpg"
 
