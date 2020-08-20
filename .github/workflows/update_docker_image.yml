@@ -25,3 +25,6 @@ jobs:
 
       - name: Build Image
         run: docker build -t docker.pkg.github.com/${{ github.repository }}/${IMAGE_NAME}:${IMAGE_TAG} .
+
+      - name: Push Image
+        run: docker push docker.pkg.github.com/${{ github.repository }}/${IMAGE_NAME}:${IMAGE_TAG}
