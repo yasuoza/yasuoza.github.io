@@ -1,0 +1,30 @@
+name: update_docker_image
+on:
+  push:
+    branches:
+      - source
+    paths:
+      - 'Dockerfile'
+      - 'docker/**'
+
+env:
+  DOCKER_BUILDKIT: 1
+  IMAGE_NAME: hugo-code-server
+  IMAGE_TAG: latest
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Update hugo-code-server image
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2.3.2
+
+      - name: Login GitHub Registry
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.repository_owner }} --password-stdin
+
+      - name: Build Image
+        run: docker build -t docker.pkg.github.com/${{ github.repository }}/${IMAGE_NAME}:${IMAGE_TAG} .
+
+      - name: Push Image
+        run: docker push docker.pkg.github.com/${{ github.repository }}/${IMAGE_NAME}:${IMAGE_TAG}

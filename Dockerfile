@@ -7,7 +7,7 @@ ARG HUGO=0.74.3
 
 COPY docker/git-credential-github-token /usr/local/bin
 RUN git config --global credential.helper github-token && \
-      sudo chmod +x /usr/local/bin/git-credential-github-token
+    sudo chmod +x /usr/local/bin/git-credential-github-token
 
 COPY docker/code-server.yml /home/coder/.config/code-server/config.yaml
 RUN sudo chown -R coder:coder /home/coder/.config
