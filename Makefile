@@ -15,5 +15,5 @@ docker/build:
 docker/server:
 	docker run --rm -v ${PWD}:/blog -w /blog -p 1313:1313 \
 		-e TZ=Asia/Tokyo \
-		hugo-coder-server \
+		hugo-code-server \
 		hugo server -D --bind 0.0.0.0 --disableFastRender --baseURL ${BASEURL}
