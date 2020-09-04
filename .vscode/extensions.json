@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "bungcip.better-toml",
-    "ics.japanese-proofreading"
+    "ics.japanese-proofreading",
+    "mhutchie.git-graph"
   ]
 }
