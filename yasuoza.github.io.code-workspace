@@ -7,6 +7,7 @@
 	"settings": {
 		"japanese-proofreading.textlint.外来語カタカナ表記": false,
 		"japanese-proofreading.textlint.丸かっこ（）": false,
-		"japanese-proofreading.textlint.全角文字と半角文字の間": false
+		"japanese-proofreading.textlint.全角文字と半角文字の間": false,
+		"files.autoSave": "off"
 	}
 }
