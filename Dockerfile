@@ -3,7 +3,7 @@ FROM codercom/code-server:3.5.0
 # Must be set as environment variable
 ENV CODESERVER_PASSWORD='password'
 
-ARG HUGO=0.74.3
+ARG HUGO=0.75.0
 
 COPY docker/git-credential-github-token /usr/local/bin
 RUN git config --global credential.helper github-token && \
