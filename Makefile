@@ -1,7 +1,10 @@
 BASEURL ?= "http://localhost"
 
 server:
-	hugo server -D --bind 0.0.0.0 --disableFastRender --baseURL ${BASEURL}
+	hugo server -D -F --bind 0.0.0.0 --disableFastRender --baseURL ${BASEURL}
+
+codespaces/server:
+	hugo server -D -F --disableFastRender --baseURL=/ --appendPort=false
 
 docker/image:
 	DOCKER_BUILDKIT=1 docker build . -t hugo-code-server
