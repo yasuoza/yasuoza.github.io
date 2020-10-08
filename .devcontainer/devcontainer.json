@@ -5,6 +5,11 @@
   // Runs /bin/sh -c "while sleep 1000; do :; done"
   "overrideCommand": true,
 
+  // Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+
   // Fetch theme
   "postCreateCommand": "git submodule update --init --recursive",
 
