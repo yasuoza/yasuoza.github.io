@@ -20,6 +20,7 @@
   "extensions": [
     "bungcip.better-toml",
     "ics.japanese-proofreading",
-    "mhutchie.git-graph"
+    "mhutchie.git-graph",
+    "taichi.vscode-textlint"
   ]
 }

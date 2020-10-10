@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "bungcip.better-toml",
+        "ics.japanese-proofreading",
+        "mhutchie.git-graph",
+        "taichi.vscode-textlint"
+    ]
+}
