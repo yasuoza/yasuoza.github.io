@@ -15,6 +15,10 @@ RUN sudo chown -R coder:coder /home/coder/.config
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN sudo chmod +x /usr/local/bin/entrypoint.sh
 
+RUN curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && \
+    sudo apt-get install -y nodejs && \
+    sudo npm install -g yarn
+
 RUN mkdir -p /tmp/hugo && \
     curl -sSL "https://github.com/gohugoio/hugo/releases/download/v${HUGO}/hugo_extended_${HUGO}_Linux-64bit.tar.gz" | tar zx -C /tmp/hugo && \
     sudo cp /tmp/hugo/hugo /usr/local/bin/ && \
