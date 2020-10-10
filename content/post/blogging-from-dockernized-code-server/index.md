@@ -4,15 +4,15 @@ date: 2020-08-27T20:49:53+09:00
 ---
 {{<image src="hugo-code-server.jpeg">}}
 
-このブログはHugoを利用して静的ファイルを生成している。一般的にはパソコンからHugoを起動してプレビューしつつ記事を書き、最後にビルドしてサイトに置くという使い方になるのだが、ブログを書くのにいちいちパソコンを開きたくなかったので、iPadでブログ記事を書けるようにした。もちろん、記事を書きつつブラウザでプレビューできることも必須要件だ。
+このブログはHugoを利用して静的ファイルを生成している。一般的にはPCからHugoを起動してプレビューしつつ記事を書き、最後にビルドしてサイトに置くという使い方になる。でも、ブログを書くのにいちいちPCを開きたくなかったので、iPadでブログ記事を書けるようにした。もちろん、記事を書きつつブラウザでプレビューできることも必須要件だ。
 
 <!--more-->
 
 構成図というかイメージは冒頭の画像の通り。
 ブログ記事のソースとなるMarkdownは[code-server](https://github.com/cdr/code-server)を利用している。
-自宅ではSynologyのNASを利用していて、そのNASでDockerが動いているので、code-serverのイメージにHugoのバイナリを入れてDockerイメージを作成し、NASのDockerで動かしている。
+自宅ではSynologyのNASを利用していて、そのNASでDockerが動いている。そこで、code-serverのDockerイメージにHugoのバイナリを入れたDockerイメージを作成し、NASのDockerで動かしている。
 
-Dockerfileはこんなかんじで
+Dockerfileはこんなかんじ。
 
 ```dockerfile
 FROM codercom/code-server:3.4.1
@@ -74,25 +74,24 @@ services:
 
 直接イメージからコンテナを起動する場合に必要な環境変数などは `docker-file.yml` を参考にして欲しい。
 
-このDockerイメージはGitHubのPackagesにビルド済みのイメージを置いているので、イメージが欲しい場合は、`read:packages` 権限があるGitHubのアクセストークンを取得しておいて、
+このDockerイメージはGitHubのPackagesにビルド済みのイメージを置いている。イメージが欲しい場合は、`read:packages` 権限があるGitHubのアクセストークンを取得しておき、次のコマンドでDockerイメージを `pull` する。
 
 ```bash
 $ cat GITHUB_TOKEN.txt | docker login https://docker.pkg.github.com -u GitHubのユーザー名 --password-stdin
 $ docker pull docker.pkg.github.com/yasuoza/yasuoza.github.io/hugo-code-server:latest
 ```
 
-で `pull` することができる。
 なお、SynologyのNASで利用する場合はコントロールパネルからSSHを有効にしてSSHでログインし、`pull` する必要がある。
 
 あとはマウントするボリュームやアクセスするポートを設定すればブラウザからブログ記事を書くことができる。
-ひとつ注意点としては、code-serverのUIDとGIDをホスト側から渡すか、割り切ってホスト側のディレクトリのパーミッションをcode-serverの
+ひとつ注意点としては、code-serverのUIDとGIDをホスト側から渡すか、割り切ってホスト側のディレクトリのパーミッションをcode-serverように設定しておくこと。そうでないと権限エラーでマウント先の `~/coder/project` に書き込むことができない。
+
 ```
 uid=1000(coder) gid=1000(coder) groups=1000(coder)
 ```
-に設定しておかないと権限エラーでマウント先の `~/coder/project` に書き込むことができない。
 
-一度Dockerコンテナを設定して、code-serverの方でワークスペースを作成しておけば、次回からはブラウザに `http://yourcodeserver:1313/?workspace=/home/coder/project/thisisyourworkspace.code-workspace` などと入力することで直接ワークスペースを開くことができるのでオススメ。
+一度Dockerコンテナを設定して、code-serverの方でワークスペースを作成しておけば、次回からはブラウザに `https://yourcodeserver.host/?workspace=/home/coder/project/thisisyourworkspace.code-workspace` などと入力することで直接ワークスペースを開くことができるのでオススメ。
 コンテナはブログを書く時だけ起動して、通常時にはコンテナを停止させておくという使い方もできる。
 なお、Hugoとcode-serverを動かしている時はコンテナのメモリ使用量が630MB程度だったので参考まで。
 
-VS Codeの拡張機能も使えるし、VS Codeそのものが快適なので、もはやパソコンから書くときもこのコンテナを利用してブラウザで書くというのもアリだなという気持ちになっている。
+VS Codeの拡張機能も使えるし、VS Codeそのものが快適なので、もはやPCから書くときもこのコンテナを利用してブラウザで書くというのもアリだなという気持ちになっている。
