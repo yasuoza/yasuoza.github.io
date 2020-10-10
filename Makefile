@@ -4,7 +4,7 @@ server:
 	hugo server -D -F --bind 0.0.0.0 --disableFastRender --baseURL ${BASEURL}
 
 codespaces/server:
-	hugo server -D -F --disableFastRender --baseURL=/ --appendPort=false
+	hugo server -D -F --disableFastRender --baseURL=/ --bind 0.0.0.0 --appendPort=false
 
 docker/image:
 	DOCKER_BUILDKIT=1 docker build . -t hugo-code-server
