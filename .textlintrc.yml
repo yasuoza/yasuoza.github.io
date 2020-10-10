@@ -1,5 +1,19 @@
 filters: 
 rules:
   preset-ja-spacing: true
-  preset-ja-technical-writing: true
+  preset-ja-technical-writing: 
+    ja-no-mixed-period:
+      allowPeriodMarks:
+        # Hugo shortcode
+        - ">}}"
+        # Code block
+        - "```"
+    ja-no-weak-phrase: false
+    sentence-length:
+      max: 100
+      exclusionPatterns:
+        # URL
+        - "/https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)/"
+        # Hugo shortcode
+        - "/{{<\\s+.*\\s+>}}/"
   spellcheck-tech-word: true
