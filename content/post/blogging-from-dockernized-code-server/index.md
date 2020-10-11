@@ -91,7 +91,7 @@ uid=1000(coder) gid=1000(coder) groups=1000(coder)
 ```
 
 一度Dockerコンテナを設定して、code-serverの方でワークスペースを作成しておけば、次回からはブラウザに `https://yourcodeserver.host/?workspace=/home/coder/project/thisisyourworkspace.code-workspace` などと入力することで直接ワークスペースを開くことができるのでオススメ。
-コンテナはブログを書く時だけ起動して、通常時にはコンテナを停止させておくという使い方もできる。
-なお、Hugoとcode-serverを動かしている時はコンテナのメモリ使用量が630MB程度だったので参考まで。
+コンテナはブログを書くときだけ起動して、通常時にはコンテナを停止させておくという使い方もできる。
+なお、Hugoとcode-serverを動かしているときはコンテナのメモリ使用量が630MB程度だったので参考まで。
 
 VS Codeの拡張機能も使えるし、VS Codeそのものが快適なので、もはやPCから書くときもこのコンテナを利用してブラウザで書くというのもアリだなという気持ちになっている。
