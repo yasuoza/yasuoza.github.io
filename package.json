@@ -1,4 +1,6 @@
 {
+  "license": "CC-BY-4.0",
+
   "devDependencies": {
     "textlint": "11.7.6",
     "textlint-rule-ja-hiragana-fukushi": "1.2.0",
