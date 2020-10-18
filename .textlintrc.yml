@@ -4,6 +4,7 @@ rules:
   ja-hiragana-hojodoushi: true
   ja-hiragana-keishikimeishi: true
 
+  # From textlint-rule-preset-ja-technical-writing
   preset-ja-spacing: true
   preset-ja-technical-writing: 
     ja-no-mixed-period:
@@ -17,7 +18,7 @@ rules:
       max: 100
       exclusionPatterns:
         # URL
-        - "/https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)/"
+        - /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
         # Hugo shortcode
-        - "/{{<\\s+.*\\s+>}}/"
+        - /{{<\s+.*\s+>}}/
   spellcheck-tech-word: true
