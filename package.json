@@ -2,7 +2,7 @@
   "license": "CC-BY-4.0",
 
   "devDependencies": {
-    "textlint": "11.7.6",
+    "textlint": "11.7.7",
     "textlint-rule-ja-hiragana-fukushi": "1.2.0",
     "textlint-rule-ja-hiragana-hojodoushi": "1.0.4",
     "textlint-rule-ja-hiragana-keishikimeishi": "1.0.2",
