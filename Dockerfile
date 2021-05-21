@@ -1,4 +1,4 @@
-FROM codercom/code-server:3.9.2
+FROM codercom/code-server:3.10.1
 
 # Must be set as environment variable
 ENV CODESERVER_PASSWORD='password'
