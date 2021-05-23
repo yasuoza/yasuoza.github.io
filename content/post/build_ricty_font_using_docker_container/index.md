@@ -15,7 +15,7 @@ Homebrewのformulaを利用する方法は便利なんだけど、ビルドを�
 
 ```shell
 $ mkdir -p fonts
-$ docker run --rm -it $PWD/fonts:/share homebrew/brew bash
+$ docker run --rm -it -v $PWD/fonts:/share homebrew/brew bash
 ```
 
 コンテナ内の処理。
