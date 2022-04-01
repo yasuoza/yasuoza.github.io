@@ -1,12 +1,19 @@
-filters: 
+plugins:
+  '@textlint/markdown': true
+
+filters:
+
 rules:
   ja-hiragana-fukushi: true
   ja-hiragana-hojodoushi: true
   ja-hiragana-keishikimeishi: true
 
+  '@proofdict/proofdict':
+    dictURL: 'https://azu.github.io/proof-dictionary/'
+
   # From textlint-rule-preset-ja-technical-writing
   preset-ja-spacing: true
-  preset-ja-technical-writing: 
+  preset-ja-technical-writing:
     ja-no-mixed-period:
       allowPeriodMarks:
         # Hugo shortcode
@@ -21,4 +28,4 @@ rules:
         - /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
         # Hugo shortcode
         - /{{<\s+.*\s+>}}/
-  spellcheck-tech-word: true
+

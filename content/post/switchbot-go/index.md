@@ -36,7 +36,7 @@ Goを選んだのはクロスコンパイルがあってホームIoTの母艦と
 
 {{< gh-card repo="yasuoza/switchbot" >}}
 
-Raspberry Pi Zero W(ARM 6)で使う場合は以下の通り。
+Raspberry Pi Zero W(ARM 6)で使う場合は以下のとおり。
 
 ```bash
 curl -SL https://github.com/yasuoza/switchbot/releases/latest/download/switchbot_linux_armv6.tar.gz -O
